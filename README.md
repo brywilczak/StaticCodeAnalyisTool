@@ -32,6 +32,7 @@ StaticCodeAnalyzer/
 ├── main.py
 ├── labeled_data.csv
 ├── input.txt
+├── generate_data.py
 └── analysis_report.txt
 ```
 
