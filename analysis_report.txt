@@ -1,0 +1,75 @@
+Static Code Analysis Report:
+
+----------------------------
+
+Source Code:
+
+# This is the input test code
+
+# Encryption key weakness
+ENCRYPTION_KEY = "weak_key"
+
+# SQL injection vulnerability
+def execute_query(query):
+    # This is vulnerable to SQL injection
+    execute("SELECT * FROM users WHERE username='" + query + "'")
+
+# Cross-Site Scripting (XSS) vulnerability
+def display_message(message):
+    print("<script>alert('" + message + "');</script>")
+
+# Code smell: Using `if 1==1`
+if 1 == 1:
+    print("This is a code smell.")
+
+# Code smell: Using `for` loop without using the loop variables
+for _ in range(5):
+    print("Loop without loop variables")
+
+# Infinite loop
+while True:
+    print("This loop will run forever")
+
+# Try-except block without specifying the exception
+try:
+    result = 1 / 0
+except:
+    print("An error occurred")
+
+# Anti-pattern: Using `print` statement
+print("This is an anti-pattern")
+
+# Anti-pattern: Using `import` statement
+import some_module
+
+# Anti-pattern: Using `global` keyword
+global_var = 10
+
+# Anti-pattern: Using `assert` statement
+assert 1 == 2
+
+
+
+
+Integration with CI/CD Pipelines:
+
+CI/CD integration not detected.
+
+
+
+Potential encryption key found: ['weak_key']
+Suggestion: Consider using secure encryption methods.
+Potential SQL injection found: ['execute("SELECT * FROM users WHERE username=\'" + query + "\'")']
+Suggestion: Use parameterized queries to prevent SQL injection.
+Potential XSS vulnerability found: ['This is a code smell.', 'Loop without loop variables', 'This loop will run forever', 'An error occurred', 'This is an anti-pattern']
+Suggestion: Perform output encoding to prevent XSS attacks.
+Code smell detected: \bwhile True:
+Suggestion: Refactor code for better readability.
+Code smell detected: \btry:
+Suggestion: Refactor code for better readability.
+Anti-pattern detected: \bprint\s*\(.*?\)
+Suggestion: Avoid using anti-patterns for better code quality.
+Anti-pattern detected: \bassert\s+.*?
+Suggestion: Avoid using anti-patterns for better code quality.
+Anti-pattern detected: \bimport\s+.*?
+Suggestion: Avoid using anti-patterns for better code quality.

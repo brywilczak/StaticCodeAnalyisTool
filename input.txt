@@ -1,0 +1,43 @@
+# This is the input test code
+
+# Encryption key weakness
+ENCRYPTION_KEY = "weak_key"
+
+# SQL injection vulnerability
+def execute_query(query):
+    # This is vulnerable to SQL injection
+    execute("SELECT * FROM users WHERE username='" + query + "'")
+
+# Cross-Site Scripting (XSS) vulnerability
+def display_message(message):
+    print("<script>alert('" + message + "');</script>")
+
+# Code smell: Using `if 1==1`
+if 1 == 1:
+    print("This is a code smell.")
+
+# Code smell: Using `for` loop without using the loop variables
+for _ in range(5):
+    print("Loop without loop variables")
+
+# Infinite loop
+while True:
+    print("This loop will run forever")
+
+# Try-except block without specifying the exception
+try:
+    result = 1 / 0
+except:
+    print("An error occurred")
+
+# Anti-pattern: Using `print` statement
+print("This is an anti-pattern")
+
+# Anti-pattern: Using `import` statement
+import some_module
+
+# Anti-pattern: Using `global` keyword
+global_var = 10
+
+# Anti-pattern: Using `assert` statement
+assert 1 == 2
